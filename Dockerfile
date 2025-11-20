@@ -6,7 +6,7 @@ FROM node:20-slim
 # Install yt-dlp + ffmpeg (for audio extraction)
 RUN apt-get update && \
     apt-get install -y python3 python3-pip ffmpeg && \
-    pip install yt-dlp && \
+    pip install --break-system-packages yt-dlp && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # ----------------------------

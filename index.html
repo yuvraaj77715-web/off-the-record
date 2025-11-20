@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Off The Record – Home</title>
+  <link rel="stylesheet" href="frontend/home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <video autoplay muted loop id="bg-video">
+  <source src="frontend/background.mp4" type="video/mp4" />
+</video>
+  <div class="container" id="home-container">
+    <nav class="sidebar">
+      <h2 class="brand-title">
+        <i class="fa-solid fa-record-vinyl"></i>Off The Record
+      </h2>
+      <button class="nav-btn active" id="home-btn">
+        <i class="fa-solid fa-house"></i>Home
+      </button>
+      <button class="nav-btn" id="library-btn">
+        <i class="fa-solid fa-book"></i>Your Library
+      </button>
+    </nav>
+
+    <main class="main-content">
+      <header>
+        <h1>Music, but Off The Record!</h1>
+        <button id="queue-toggle" class="queue-toggle">
+          <i class="fa-solid fa-list"></i>Queue
+        </button>
+      </header>
+
+      <form id="search-form">
+        <i class="fa fa-search search-icon"></i>
+        <input type="text" id="search-input" placeholder="Search for a song, artist, or album…" />
+        <button type="submit">Search</button>
+      </form>
+
+      <section id="search-results" class="search-results-container">
+        <div class="content-placeholder">
+          <h2>Your music awaits</h2>
+          <p>Use the search bar above to find and play any song.</p>
+        </div>
+      </section>
+    </main>
+
+    <aside id="queue-panel" class="queue-panel hidden">
+      <h2>Queue</h2>
+      <ul>
+        <li>Up next…</li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="playback-bar">
+    <div class="song-info">
+      <img id="album-cover" src="https://placehold.co/64x64/beige/brown?text=OTR" alt="Album Cover" />
+      <div class="song-details">
+        <span id="now-playing">Search for a song to begin</span>
+      </div>
+      <button id="like-btn" title="Like Song">
+        <i class="far fa-heart"></i>
+      </button>
+    </div>
+
+    <div class="controls">
+      <button id="play-btn" class="play-button" title="Play/Pause">
+        <i class="fa fa-play"></i>
+      </button>
+    </div>
+    <audio id="audio-player"></audio>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

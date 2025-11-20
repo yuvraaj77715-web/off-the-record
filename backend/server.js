@@ -25,9 +25,18 @@ app.use(bodyParser.json());
 // --------------------
 const JWT_SECRET = process.env.JWT_SECRET || "dev_secret_changeme";
 const musicFolder = path.join(__dirname, "music");
+const frontendFolder = path.join(__dirname, "../frontend");
 
 // Serve local music folder
 app.use("/music", express.static(musicFolder));
+
+// Serve frontend static files
+app.use(express.static(frontendFolder));
+
+// Serve index.html for root
+app.get("/", (req, res) => {
+  res.sendFile(path.join(frontendFolder, "index.html"));
+});
 
 // --------------------
 // Utility

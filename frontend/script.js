@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const API_URL = "https://off-the-record-1.onrender.com"; 
+  const API_URL = ""; 
 
 
   //login

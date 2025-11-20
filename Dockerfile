@@ -25,6 +25,7 @@ RUN cd backend && npm install --omit=dev
 # 4. Copy Source Files
 # ----------------------------
 COPY backend ./backend
+COPY frontend ./frontend
 
 # ----------------------------
 # 5. Set Environment

@@ -3,9 +3,9 @@
 # ----------------------------
 FROM node:20-slim
 
-# Install yt-dlp + ffmpeg (for audio extraction)
+# Install yt-dlp + ffmpeg + build tools (for native modules like bcrypt)
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip ffmpeg && \
+    apt-get install -y python3 python3-pip ffmpeg build-essential && \
     pip install --break-system-packages yt-dlp && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -19,7 +19,7 @@ WORKDIR /app
 # ----------------------------
 # Copy ONLY backend package files first (better cache)
 COPY backend/package*.json ./backend/
-RUN cd backend && npm install --omit=dev
+RUN cd backend && npm install --omit=dev && npm rebuild bcrypt --build-from-source
 
 # ----------------------------
 # 4. Copy Source Files

@@ -1,0 +1,122 @@
+/* General page styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f5f0e6, #fff8f0); /* soft beige gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Login container */
+#auth-container {
+    background-color: #fdf6ec; /* light beige card */
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    transition: all 0.3s ease;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: fadeInUp 0.6s forwards;
+}
+
+/* Form title */
+#form-title {
+    color: #5c4033; /* brown */
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+/* Input wrapper for icons */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Input fields */
+#auth-container input[type="text"],
+#auth-container input[type="password"] {
+    width: 100%;
+    padding: 12px 40px 12px 15px; /* space for icon */
+    margin-bottom: 20px;
+    border: 1px solid #d4c0a1; /* light brown border */
+    border-radius: 10px;
+    font-size: 16px;
+    color: #5c4033; /* brown text */
+    background-color: #fff8f0; /* very light beige */
+    transition: all 0.3s ease;
+}
+
+#auth-container input::placeholder {
+    color: #a67c52; /* medium brown */
+}
+
+/* Input icons */
+.input-wrapper i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a67c52;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+/* Focus effect */
+#auth-container input:focus {
+    outline: none;
+    border-color: #a67c52; /* darker brown */
+    box-shadow: 0 0 8px rgba(166, 124, 82, 0.3);
+}
+
+/* Login button */
+#login-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #5c4033, #4b3227); /* brown gradient */
+    color: #fdf6ec; /* beige text */
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#login-btn:hover {
+    background: linear-gradient(135deg, #4b3227, #3a261f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Toggle link for signup */
+.toggle-link {
+    margin-top: 20px;
+    color: #5c4033; /* brown */
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.toggle-link:hover {
+    color: #4b3227; 
+}
+
+* {
+    transition: all 0.3s ease;
+}
+
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

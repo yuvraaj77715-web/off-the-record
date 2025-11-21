@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const API_URL = ""; 
+  // Backend API URL - Update this to your Railway backend URL
+  const API_URL = "https://off-the-record-production.up.railway.app";
 
 
   //login
@@ -157,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    
+
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
       streamSong(searchInput.value.trim(), null);
@@ -215,6 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
       playBtnIcon.className = "fa fa-play";
     };
 
-  
+
   }
 });

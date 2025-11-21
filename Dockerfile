@@ -24,8 +24,8 @@ RUN cd backend && npm install --omit=dev && npm rebuild bcrypt --build-from-sour
 # ----------------------------
 # 4. Copy Source Files
 # ----------------------------
+# Only copy backend files (frontend is hosted on InfinityFree)
 COPY backend ./backend
-COPY frontend ./frontend
 
 # ----------------------------
 # 5. Set Environment

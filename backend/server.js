@@ -17,7 +17,21 @@ require("dotenv").config(); // Load .env
 // App Setup
 // --------------------
 const app = express();
-app.use(cors());
+
+// CORS configuration for split deployment (frontend on InfinityFree, backend on Railway)
+const corsOptions = {
+  origin: [
+    'https://off-the-record.42web.io',  // InfinityFree frontend
+    'http://off-the-record.42web.io',   // HTTP fallback
+    'http://localhost:3000',             // Local development
+    'http://localhost:5500',             // Live Server
+    'http://127.0.0.1:5500'              // Live Server alternative
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 // --------------------
@@ -25,17 +39,17 @@ app.use(bodyParser.json());
 // --------------------
 const JWT_SECRET = process.env.JWT_SECRET || "dev_secret_changeme";
 const musicFolder = path.join(__dirname, "music");
-const frontendFolder = path.join(__dirname, "../frontend");
 
 // Serve local music folder
 app.use("/music", express.static(musicFolder));
 
-// Serve frontend static files
-app.use(express.static(frontendFolder));
-
-// Serve index.html for root
+// Health check endpoint for Railway
 app.get("/", (req, res) => {
-  res.sendFile(path.join(frontendFolder, "index.html"));
+  res.json({
+    status: "OK",
+    message: "Off The Record API is running",
+    timestamp: new Date().toISOString()
+  });
 });
 
 // --------------------

@@ -19,7 +19,8 @@ WORKDIR /app
 # ----------------------------
 # Copy ONLY backend package files first (better cache)
 COPY backend/package*.json ./backend/
-RUN cd backend && npm install --omit=dev && npm rebuild bcrypt --build-from-source
+RUN cd backend && npm install --omit=dev
+RUN cd backend && npm rebuild bcrypt --build-from-source
 
 # ----------------------------
 # 4. Copy Source Files

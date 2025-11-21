@@ -30,10 +30,12 @@ COPY frontend ./frontend
 # ----------------------------
 # 5. Set Environment
 # ----------------------------
-ENV PORT=4000
 ENV NODE_ENV=production
 
-EXPOSE 4000
+# Railway provides PORT dynamically, but we set a default for local testing
+ENV PORT=4000
+
+EXPOSE $PORT
 
 # ----------------------------
 # 6. Start Command
